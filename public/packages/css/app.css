@@ -1,0 +1,33 @@
+@font-face {
+	font-family: sourcesans;
+	src: url("../fonts/sourcesansproregular.ttf");
+}
+
+body {
+	font-family: sourcesans;
+}
+
+.inform-text{
+	margin-top: 30px;
+}
+.reg-text{
+	margin-top: 25px;
+}
+.login-row{
+	margin-top: 30px;
+}
+.help-text{
+	margin-top: 70px;
+}
+.how-text{
+	margin-top: 30px;
+	font-size: 16px;
+	line-height: 1.7em;
+	text-align: justify;
+}
+.reg-div{
+	margin-top: 70px;
+}
+#success{
+	display: none;
+}
