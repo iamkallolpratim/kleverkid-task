@@ -7,3 +7,12 @@ body {
 	font-family: sourcesans;
 	padding-top: 50px;
 }
+.hidden{
+	display: none;
+}
+.cmn-btn{
+	margin-top: 35px;
+}
+.user-raw{
+	margin-top: 50px;
+}

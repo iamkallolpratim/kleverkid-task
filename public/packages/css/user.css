@@ -5,5 +5,11 @@
 
 body {
 	font-family: sourcesans;
-	padding-top: 50px;
+	padding-top: 70px;
+}
+.form-control{
+	border-radius:0px;
+}
+.hidden{
+	display: none;
 }

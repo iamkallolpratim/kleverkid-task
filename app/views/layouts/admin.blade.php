@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Project DS1</title>
+<title>Admin Panel</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
 <!-- css -->

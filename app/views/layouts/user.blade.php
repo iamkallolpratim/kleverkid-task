@@ -8,7 +8,7 @@
 <!-- css -->
 {{HTML::style('packages/css/bootstrap.css')}}
 {{HTML::style('packages/css/font-awesome.css')}}
-{{HTML::style('packages/css/client.css')}}
+{{HTML::style('packages/css/user.css')}}
 </head>
 <body>
 	<header>
