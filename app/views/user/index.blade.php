@@ -33,13 +33,12 @@
 							<textarea rows="2" cols="" class="form-control" name="address"
 								id="address"></textarea>
 						</div>
-						<div class="form-group">
-							<label></label>
-							<button type="button" id="saveBtn" onclick="saveContact();"
-								class="btn btn-primary btn-block">Save</button>
-						</div>
 						{{Form::close() }}
 					</div>
+					<div class="col-md-6"><button type="button" id="upBtn" onclick="updateData();" class="btn btn-info btn-block">Update</button></div>
+					<div class="col-md-6"><button type="button" id="canBtn" onclick="cancel();" class="btn btn-danger btn-block">Cancel</button></div>
+					<div class="col-md-12"><button type="button" id="saveBtn" onclick="saveContact();"class="btn btn-primary btn-block">Save</button></div>
+								
 				</div>
 			</div>
 		</div>
@@ -55,7 +54,7 @@
 						<th>Email</th>
 						<th>Mobile</th>
 						<th>Region</th>
-						<th>Address</th>
+						<th style="width: 20%;">Address</th>
 						<th>Action</th>
 					</tr>
 				</thead>

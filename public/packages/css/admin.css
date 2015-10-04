@@ -5,9 +5,9 @@
 
 body {
 	font-family: sourcesans;
-	padding-top: 50px;
+	padding-top: 80px;
 }
-.hidden{
+.hidden,#upBtn, #canBtn{
 	display: none;
 }
 .cmn-btn{
@@ -15,4 +15,7 @@ body {
 }
 .user-raw{
 	margin-top: 50px;
+}
+#username,#u_name{
+	text-transform: capitalize;
 }

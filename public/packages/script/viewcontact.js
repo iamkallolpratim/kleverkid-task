@@ -1,46 +1,27 @@
-window.onload = function(){
-	allContacts();
-}
-
+var user_id, user_name;
 var token = $("input[name=_token]").val();
 
-function saveContact(){
-	var formData = $('form#contact-form').serializeArray(); 
-	$('#saveBtn').attr('disabled', true).html('PLEASE WAIT..');
-	
-	$.ajax({
-		url : '/contact/save',
-		type : 'POST',
-		dataType : 'JSON',
-		data : formData,
-		success : function(data) {
-			$('#saveBtn').attr('disabled', false).html('Save');
-			if(data!=0){
-				$('form#contact-form').each(function() {
-					this.reset();
-				});
-				allContacts();
-				alert('contact saved');
-			}
-			else{
-				alert('something went wrong!!');
-			}
-		}
-	
-	});
-}
+window.onload = function() {
+	getUrlVars();
+	user_id = getUrlVars()["user_id"];
+	user_name = getUrlVars()["name"];
+	$('#username,#u_name').append(user_name);
+	$('#user_id').val(user_id);
+	contactByUser();
 
-function allContacts(){
+}
+//get contacts by user
+function contactByUser(){
 	$('#contact-list').html('<tr><td colspan="6" style="text-align: center;margin-top: 20px;"><h4 class="text-mute">Loading....</h4></i></td></tr>');
 	$.ajax({
-		url : '/contact/allcontacts',
-		type : 'GET',
+		url : '/adminservice/contactsbyuser',
+		type : 'POST',
 		datatype : 'JSON',
+		data : {'id':user_id},
 		success : function(data) {
 			$('#contact-list').empty();
 			
 			if(data.length != 0){
-				
 				for(var i in data){
 					var userRow = '<tr>'
 								+'<td class="id hidden">'+data[i].id+'</td>'
@@ -59,10 +40,36 @@ function allContacts(){
 				$('#contact-list').html('<tr class="danger"><td colspan="6" style="text-align: center;">No data Found</td></tr>');
 			}
 		}
+	});
+} 
+
+
+//add contact
+function saveContact(){
+	var formData = $('form#contact-form').serializeArray(); 
+	$('#saveBtn').attr('disabled', true).html('PLEASE WAIT..');
+	
+	$.ajax({
+		url : '/adminservice/saveforuser',
+		type : 'POST',
+		dataType : 'JSON',
+		data : formData,
+		success : function(data) {
+			$('#saveBtn').attr('disabled', false).html('Save');
+			if(data!=0){
+				$('form#contact-form').each(function() {
+					this.reset();
+				});
+				contactByUser();
+				alert('contact saved');
+			}
+			else{
+				alert('something went wrong!!');
+			}
+		}
 	
 	});
 }
-
 
 //delete contact
 $('#contact-list').on("click", ".del", function(){
@@ -117,11 +124,11 @@ function updateData(){
 				$('form#contact-form').each(function() {
 					this.reset();
 				});
-				allContacts();
+				contactByUser();
 				alert('contact updated');
 				$('#saveBtn').show();
 				$('#canBtn, #upBtn').hide();
-				allContacts();
+				
 		}
 	
 	});
@@ -136,3 +143,15 @@ function cancel(){
 	$('#canBtn, #upBtn').hide();
 	
 }
+
+// read data from url
+function getUrlVars() {
+	var url = window.location.href, vars = {};
+	url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+		key = decodeURIComponent(key);
+		value = decodeURIComponent(value);
+		vars[key] = value;
+	});
+	return vars;
+}
+

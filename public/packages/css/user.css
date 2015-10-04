@@ -7,9 +7,7 @@ body {
 	font-family: sourcesans;
 	padding-top: 70px;
 }
-.form-control{
-	border-radius:0px;
-}
-.hidden{
+
+.hidden, #upBtn, #canBtn{
 	display: none;
 }

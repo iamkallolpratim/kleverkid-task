@@ -9,6 +9,9 @@
 {{HTML::style('packages/css/bootstrap.css')}}
 {{HTML::style('packages/css/font-awesome.css')}}
 {{HTML::style('packages/css/admin.css')}}
+<!-- script js -->
+{{HTML::script('packages/js/jquery.min.js');}}
+{{HTML::script('packages/js/bootstrap.js');}}
 </head>
 <body>
 	<header>
@@ -36,8 +39,6 @@
 							data-toggle="dropdown" role="button" aria-haspopup="true"
 							aria-expanded="false"><?php echo Session::get("name"); ?><span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-								<li role="separator" class="divider"></li>
 								<li><a href="{{URL::to('users/logout')}}"><i class="fa fa-power-off"></i> Logout</a></li>
 							</ul>
 						</li>
@@ -55,8 +56,6 @@
 	</section>
 
 
-	<!-- script js -->
-	{{HTML::script('packages/js/jquery.min.js');}}
-	{{HTML::script('packages/js/bootstrap.js');}}
+	
 </body>
 </html>
