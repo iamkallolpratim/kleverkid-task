@@ -20,6 +20,16 @@
 								name="mobile" id="mobile">
 						</div>
 						<div class="form-group">
+							<label>Client Type</label>
+							<br> 
+							<label class="radio-inline"> <input
+								type="radio" name="type" id="private" 
+								value="Private" checked="checked"> Private
+							</label> <label class="radio-inline"> <input type="radio"
+								name="type" id="government"  value="Government">Government
+							</label>
+						</div>
+						<div class="form-group">
 							<label>Select Region</label> <select class="form-control"
 								id="region" name="region">
 								<option value="North Delhi">North Delhi</option>
@@ -35,10 +45,19 @@
 						</div>
 						{{Form::close() }}
 					</div>
-					<div class="col-md-6"><button type="button" id="upBtn" onclick="updateData();" class="btn btn-info btn-block">Update</button></div>
-					<div class="col-md-6"><button type="button" id="canBtn" onclick="cancel();" class="btn btn-danger btn-block">Cancel</button></div>
-					<div class="col-md-12"><button type="button" id="saveBtn" onclick="saveContact();"class="btn btn-primary btn-block">Save</button></div>
-								
+					<div class="col-md-6">
+						<button type="button" id="upBtn" onclick="updateData();"
+							class="btn btn-info btn-block">Update</button>
+					</div>
+					<div class="col-md-6">
+						<button type="button" id="canBtn" onclick="cancel();"
+							class="btn btn-danger btn-block">Cancel</button>
+					</div>
+					<div class="col-md-12">
+						<button type="button" id="saveBtn" onclick="saveContact();"
+							class="btn btn-primary btn-block">Save</button>
+					</div>
+
 				</div>
 			</div>
 		</div>
@@ -53,6 +72,7 @@
 						<th>Name</th>
 						<th>Email</th>
 						<th>Mobile</th>
+						<th>Type</th>
 						<th>Region</th>
 						<th style="width: 20%;">Address</th>
 						<th>Action</th>
@@ -63,5 +83,4 @@
 		</div>
 	</div>
 </div>
-{{HTML::script('packages/script/contact.js');}}
-@stop
+{{HTML::script('packages/script/contact.js');}} @stop

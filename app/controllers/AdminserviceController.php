@@ -27,6 +27,7 @@ class AdminserviceController extends Controller
 			$contact->name = Input::get ( 'name' );
 			$contact->email = Input::get ( 'email' );
 			$contact->mobile = Input::get ( 'mobile' );
+			$contact->type = Input::get ( 'type' );
 			$contact->region = Input::get ( 'region' );
 			$contact->address = Input::get ( 'address' );
 			$contact->user_id = $user_id;

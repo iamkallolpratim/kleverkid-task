@@ -18,6 +18,7 @@ class CreateContactTable extends Migration {
 			$table->string('name');
 			$table->string('email')->unique();
 			$table->string('mobile')->unique();
+			$table->enum('type', ['Private', 'Government']);
 			$table->string('region');
 			$table->text('address');
 			$table->integer('user_id');

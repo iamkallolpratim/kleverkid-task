@@ -23,6 +23,16 @@
 								name="mobile" id="mobile">
 						</div>
 						<div class="form-group">
+							<label>Client Type</label>
+							<br> 
+							<label class="radio-inline"> <input
+								type="radio" name="type" id="private" 
+								value="Private" checked="checked"> Private
+							</label> <label class="radio-inline"> <input type="radio"
+								name="type" id="government"  value="Government">Government
+							</label>
+						</div>
+						<div class="form-group">
 							<label>Select Region</label> <select class="form-control"
 								id="region" name="region">
 								<option value="North Delhi">North Delhi</option>
@@ -67,6 +77,7 @@
 							<th>Name</th>
 							<th>Email</th>
 							<th>Mobile</th>
+							<th>Type</th>
 							<th>Region</th>
 							<th>Address</th>
 							<th>Action</th>

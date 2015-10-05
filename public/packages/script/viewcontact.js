@@ -12,7 +12,7 @@ window.onload = function() {
 }
 //get contacts by user
 function contactByUser(){
-	$('#contact-list').html('<tr><td colspan="6" style="text-align: center;margin-top: 20px;"><h4 class="text-mute">Loading....</h4></i></td></tr>');
+	$('#contact-list').html('<tr><td colspan="7" style="text-align: center;margin-top: 20px;"><h4 class="text-mute">Loading....</h4></i></td></tr>');
 	$.ajax({
 		url : '/adminservice/contactsbyuser',
 		type : 'POST',
@@ -28,6 +28,7 @@ function contactByUser(){
 								+'<td class="name">'+data[i].name+'</td>'
 								+'<td class="email">'+data[i].email+'</td>'
 								+'<td class="mobile">'+data[i].mobile+'</td>'
+								+'<td class="type">'+data[i].type+'</td>'
 								+'<td class="region">'+data[i].region+'</td>'
 								+'<td class="address">'+data[i].address+'</td>'
 								+'<td><button class="edit btn btn-info btn-xs pull-left" tile="edit"><i class="fa fa-edit"></i></button><button class="del btn btn-danger btn-xs pull-right" tile="delete"><i class="fa fa-trash"></i></button> </td>'
@@ -37,7 +38,7 @@ function contactByUser(){
 				}
 			}
 			else{
-				$('#contact-list').html('<tr class="danger"><td colspan="6" style="text-align: center;">No data Found</td></tr>');
+				$('#contact-list').html('<tr class="danger"><td colspan="7" style="text-align: center;">No data Found</td></tr>');
 			}
 		}
 	});
@@ -97,6 +98,7 @@ $('#contact-list').on("click", ".edit", function(){
 	var name = $edit.closest("tr").find(".name").text();
 	var email = $edit.closest("tr").find(".email").text();
 	var mobile = $edit.closest("tr").find(".mobile").text();
+	var $type = $edit.closest("tr").find(".type").text();
 	var region = $edit.closest("tr").find(".region").text();
 	var address = $edit.closest("tr").find(".address").text();
 	
@@ -106,6 +108,9 @@ $('#contact-list').on("click", ".edit", function(){
 	$('#mobile').val(mobile);
 	$('#address').val(address);
 	$('#region').val(region);
+	
+	$("input[name=type][value="+$type+"]").attr('checked', true);
+	
 	$('#saveBtn').hide();
 	$('#canBtn, #upBtn').show();
 });
